@@ -5,19 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@MappedSuperclass
-public abstract class Gate {
+public class ParkingLot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long gateId;
+    protected Long parkingLotId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    protected Operator operator;
+    @OneToMany
+    private List<ParkingFloor> floors;
 
 
 }

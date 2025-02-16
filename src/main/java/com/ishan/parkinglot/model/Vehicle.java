@@ -1,4 +1,10 @@
 package com.ishan.parkinglot.model;
 
-public class Vehicle {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Vehicle{
+    @Id
+    public String vehicleNumber;
 }
